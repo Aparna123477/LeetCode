@@ -1,12 +1,10 @@
 class Solution {
     public int missingNumber(int[] nums) {
         int n=nums.length;
-        boolean[] pos=new boolean[n+1];
-        for(int i: nums){
-            pos[i]=true;
-        }
-        for(int k=0;k<pos.length;k++){
-            if(pos[k]==false) return k;
+        HashSet<Integer>set=new HashSet<>();
+        for(int i:nums) set.add(i);
+        for(int i=0;i<=n;i++){
+            if(!set.contains(i))return i;
         }
         return -1;
     }
