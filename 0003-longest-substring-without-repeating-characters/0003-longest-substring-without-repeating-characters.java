@@ -3,18 +3,20 @@ class Solution {
         
         int max=0;
         for(int i=0;i<s.length();i++){
-            Set<Character> set=new HashSet<>();
+            int[] freq=new int[256];
+            int count=0;
             for(int j=i;j<s.length();j++){
                 char ch=s.charAt(j);
-            if(set.contains(ch)){
+            if(freq[ch]==1){
                 break;
             }
             else{
-                set.add(ch);
+                freq[ch]++;
+                count++;
             }
 
             }
-            max=Math.max(max,set.size());
+            max=Math.max(max,count);
 
         }
         return max;
