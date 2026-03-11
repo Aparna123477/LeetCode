@@ -1,16 +1,24 @@
 class Solution {
     public boolean checkInclusion(String s1, String s2) {
-        char[] arr1=s1.toCharArray();
         int k=s1.length();
-        for(int i=0;i<s2.length()-k;i++){
+        for(int i=0;i<=s2.length()-k;i++){
             String sub=s2.substring(i,i+k);
-            char[] arr2=sub.toCharArray();
-            Arrays.sort(arr2);
-            if(Arrays.equals(arr1,arr2)) return true;
-            
+            if(isAnagram(s1,sub)) return true;
         }
-        return false;
+        return false;}
+
+     public static boolean isAnagram(String s,String n){
+            int[] f1=new int[26];
+            for(char ch: s.toCharArray()){
+                f1[ch-'a']++;
+            }
+            int[] f2=new int[26];
+            for(char ch:n.toCharArray()){
+                f2[ch-'a']++;
+            }
+            return Arrays.equals(f1,f2);
+        }
+      
 
         
     }
-}
