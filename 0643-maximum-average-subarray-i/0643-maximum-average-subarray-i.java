@@ -6,10 +6,10 @@ class Solution {
             sum+=nums[i];
         }
         int max=sum;
-        for(int i=k;i<nums.length;i++){
+        for(int i=k;i<n;i++){
             sum+=nums[i]-nums[i-k];
             max=Math.max(sum,max);
         }
-        return (double)max/k;
+        return (double) max/k;
     }
 }
