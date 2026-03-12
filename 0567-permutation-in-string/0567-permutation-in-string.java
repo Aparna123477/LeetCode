@@ -8,9 +8,9 @@ class Solution {
         }
         return false;
     }
-    public static boolean isAnagram(String s1,String s2){
+    public static boolean isAnagram(String s,String s2){
         int[] fr1=new int[26];
-        for(char ch:s1.toCharArray()){
+        for(char ch:s.toCharArray()){
             fr1[ch-'a']++;
         }
         int[] fr2=new int[26];
