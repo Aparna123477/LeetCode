@@ -5,15 +5,9 @@ class Solution {
         
         return target%gcd==0;
     }
-    public int gcd(int x,int y){
-        int dividend=x;
-        int divisor=y;
-        while(dividend % divisor!=0){
-            int rem=dividend % divisor;
-            dividend=divisor;
-            divisor=rem;
-
-        }
-        return divisor;
+    public int gcd(int dividend,int divisor){
+        if(divisor==0) return dividend;
+        return gcd(divisor,dividend % divisor);
+        
     }
 }
