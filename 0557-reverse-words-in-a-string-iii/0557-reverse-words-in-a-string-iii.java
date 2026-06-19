@@ -4,7 +4,9 @@ class Solution {
         StringBuilder res=new StringBuilder();
         for(String word:words){
             res.append(new StringBuilder(word).reverse()).append(" ");
+
         }
         return res.toString().trim();
+
     }
 }
