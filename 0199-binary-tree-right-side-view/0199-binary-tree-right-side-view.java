@@ -15,27 +15,15 @@
  */
 class Solution {
     public List<Integer> rightSideView(TreeNode root) {
-        List<Integer> ans = new ArrayList<>();
-        if (root == null) return ans;
         
-        Queue<TreeNode> queue = new LinkedList<>();
-        queue.add(root);
-        
-        while (!queue.isEmpty()) {
-            int size = queue.size();
-            
-            for (int i = 0; i < size; i++) {
-                TreeNode current = queue.poll();
-                
-                // If it's the last element of the current level, it's visible from the right side
-                if (i == size - 1) {
-                    ans.add(current.val);
-                }
-                
-                if (current.left != null) queue.add(current.left);
-                if (current.right != null) queue.add(current.right);
-            }
-        }
-        return ans;
+        List<Integer> l=new ArrayList<>();
+        func(root,l,0);
+        return l;
+    }
+    void func(TreeNode root,List<Integer>l,int lvl){
+        if(root==null) return;
+        if(lvl==l.size()) l.add(root.val);
+        func(root.right,l,lvl+1);
+        func(root.left,l,lvl+1);
     }
 }
