@@ -1,9 +1,15 @@
 class Solution {
     public int singleNumber(int[] nums) {
-        int sum=0;
-        for(int i=0;i<nums.length;i++){
-            sum^=nums[i];
+        HashMap<Integer,Integer> map=new HashMap<>(); 
+        for(int num:nums){
+         
+                map.put(num,map.getOrDefault(num,0)+1);
+               
         }
-        return sum;
+        for(int i:map.keySet()){
+            if(map.get(i)==1) return i;    
+        }
+        return -1;
+        
     }
 }
