@@ -1,15 +1,10 @@
 class Solution {
     public int singleNumber(int[] nums) {
-        HashMap<Integer,Integer> map=new HashMap<>(); 
-        for(int num:nums){
-         
-                map.put(num,map.getOrDefault(num,0)+1);
-               
+        int m=0;
+        for(int i=0;i<nums.length;i++)
+        {
+            m=nums[i]^m;
         }
-        for(int i:map.keySet()){
-            if(map.get(i)==1) return i;    
-        }
-        return -1;
-        
+        return m;
     }
 }
