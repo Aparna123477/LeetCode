@@ -1,6 +1,6 @@
 class Solution {
     public int[] plusOne(int[] digits) {
-        
+        //T(n)=O(n) ,S(n)=O(n)
         for(int i=digits.length-1;i>=0;i=i-1){
             if(digits[i]==9) 
             digits[i]=0;
