@@ -1,11 +1,16 @@
 class Solution {
     public int findNumbers(int[] nums) {
-        int e=0,o=0;
-        for(int i=0;i<nums.length;i++){
-            String s=String.valueOf(nums[i]);
-            if(s.length()%2==0) e++;
-            else o++;
+        int evencount=0;
+        for(int num:nums)
+        {
+            int count=0;
+            while(num>0){
+                num=num/10;
+                count++;
+            }
+            if(count%2==0)evencount++;
         }
-        return e;
+        return evencount;
+        
     }
 }
