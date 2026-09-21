@@ -1,12 +1,24 @@
 class Solution {
     public int arrayPairSum(int[] nums) {
-        int maxSum=0;
         int n=nums.length;
-        Arrays.sort(nums);
-        for(int i=0;i<n;i+=2)
+        int k=10000;
+        int[] count=new int[2*k+1];
+        for(int i=0;i<n;i++)
         {
-            maxSum+=nums[i];
+            count[nums[i]+k]++;
         }
-        return maxSum;
+         boolean isEven=true;
+            int maxSum=0;
+            for(int i=0;i<2*k+1;i++)
+            {
+                while(count[i]>0)
+                {
+        
+                    maxSum=maxSum+(isEven?i-k:0);
+                    count[i]--;
+                    isEven=!isEven;
+                }
+            }
+            return maxSum;
     }
 }
